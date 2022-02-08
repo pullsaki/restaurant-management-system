@@ -16,6 +16,7 @@ bool checkcustomer(){
     for(int i=0;i<customers.size();i++){
         if(customers[i].name == name && customers[i].password == password){
             cout << "Welcome to the restaurant Mr/Mrs." << customers[i].name << endl;
+            customers[i].no_of_visits++;
             return true;
         }
     }
