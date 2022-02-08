@@ -33,3 +33,17 @@ class Admin{
 };
 
 vector<Admin> admins = {Admin("admin", "admin")};
+
+class Dish{
+    public:
+    string name;
+    int price;
+    int quantity;
+    Dish(string name, int price, int quantity){
+        this->name = name;
+        this->price = price;
+        this->quantity = quantity;
+    }
+};
+vector<Dish> dishes = {Dish("Chicken Biryani", 200, 2), Dish("Pizza", 100, 4),
+ Dish("Burger", 50, 6), Dish("Coke", 50, 8), Dish("Pepsi", 50, 10)};

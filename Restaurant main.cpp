@@ -19,7 +19,7 @@ customers.push_back(Customer("jhon101", "password7", 0, 0, vector<pair<string,in
 customers.push_back(Customer("jhon102", "password8", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("jhon104", "password9", 0, 0, vector<pair<string,int>>()));
     int num;
-    bool customer, admin, exit = false;
+    bool customer = false, admin = false, exit = false;
     while(exit == false){
     cout << "Welcome to Restuarant"<<"\n";
     cout << "Choose any one of the options below:" << endl;
