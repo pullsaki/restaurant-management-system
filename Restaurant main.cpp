@@ -12,7 +12,7 @@ int main(){
 customers.push_back(Customer("jhon", "password1", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("saketh", "password2", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("kaushik", "password3", 0, 0, vector<pair<string,int>>()));
-customers.push_back(Customer("sai", "password4", 0, 0, vector<pair<string,int>>()));
+customers.push_back(Customer("ratna", "snekss", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("aditya", "password5", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("aakash", "password6", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("jhon101", "password7", 0, 0, vector<pair<string,int>>()));
