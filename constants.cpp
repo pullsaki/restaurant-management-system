@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include<algorithm>
 using namespace std;
 
 class Customer{
@@ -46,4 +47,9 @@ class Dish{
     }
 };
 vector<Dish> dishes = {Dish("Chicken Biryani", 200, 2), Dish("Pizza", 100, 4),
- Dish("Burger", 50, 6), Dish("Coke", 50, 8), Dish("Pepsi", 50, 10)};
+Dish("Burger", 50, 6), Dish("Coke", 50, 8), Dish("Pepsi", 50, 10)};
+
+string lower(string s){
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
+    return s;
+}
