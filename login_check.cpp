@@ -5,7 +5,7 @@
 #include "constants.cpp"
 using namespace std;
 
-bool checkcustomer(){
+int checkcustomer(){
         string name;
         char* password;
         cout << "Enter your name: ";
@@ -17,11 +17,11 @@ bool checkcustomer(){
         if(customers[i].name == name && customers[i].password == password){
             cout << "Welcome to the restaurant Mr/Mrs." << customers[i].name << endl;
             customers[i].no_of_visits++;
-            return true;
+            return i;
         }
     }
     cout << "Invalid username or password" << endl;
-    return false;
+    return 0;
 }
 
 bool checkadmin(){

@@ -4,10 +4,9 @@
 #include<algorithm>
 #include<iomanip>
 #include "constants.cpp"
-
 using namespace std;
 
-void viewdishes(){
+void view_dishes(){
     cout << "Dishes available are: " << endl;
     cout << std::left << std::setw(20) << "Dish name" << internal << setw(20) << "Price" <<setw(20) << "Quantity Available"<< endl;
     for(int i=0;i<dishes.size();i++){
@@ -27,8 +26,8 @@ getline(cin, dishname, '\n');
     cin>>price;
     cout<<"Enter quantity of the dish"<<endl;
     cin>>qty;
-     dishes.push_back(Dish(dishname,price,qty));
-    
+     dishes.push_back(Dish(dishname,price,qty,0));
+
 
 }
 void modify_dish()
@@ -40,7 +39,7 @@ void modify_dish()
   bool fd=0;
   for(int i=0;i<dishes.size();i++)
   {
-      if(s==dishes[i].name)
+      if(lower(s)==lower(dishes[i].name))
       {
           fd=1;
           ind=i;
@@ -80,10 +79,7 @@ void search_by_name()
 getline(cin, dishname, '\n'); //string s=lower("hi");
     for(int i=0;i<dishes.size();i++){
         string t_name=dishes[i].name;
-            transform(t_name.begin(), t_name.end(), t_name.begin(), ::tolower);
-    transform(dishname.begin(), dishname.end(), dishname.begin(), ::tolower);
-
-        if(t_name == dishname){
+        if(lower(t_name) == lower(dishname)){
             cout << "The dish that you are searching for is available to order and its details are shown below:"<<endl;
             cout << "Price: " << dishes[i].price << endl;
             cout << "Quantity Available: "<< dishes[i].quantity << endl;
@@ -99,35 +95,29 @@ getline(cin, dishname, '\n'); //string s=lower("hi");
 void adminservices(){
     int num;
     bool exit = false;
-    while(exit == false){
+    while(!exit){
     cout << "Choose any one of the options below:" << endl;
     cout << "1. View available dishes and quantity" << endl;
     cout << "2. add new dishes into menu" << endl;
     cout << "3. modify dishes" << endl;
     cout << "4. search dishes by name" << endl;
-    
     cout << "5. Logout" << endl;
     cin >> num;
     if(num == 1){
-        viewdishes();
+        view_dishes();
     }
-   else if(num == 2){
+   if(num == 2){
         add_dishes_menu();
     }
-    else if(num == 3){
+    if(num == 3){
         modify_dish();
     }
-    else if(num == 4){
+    if(num == 4){
         search_by_name();
     }
-   
-    else if(num == 5){
-
+    if(num == 5){
         cout << "You are successfully logged out" << endl;
         exit = true;
-    }
-    else{
-        cout<<"Enter valid number"<<endl;
     }
 }
 }
