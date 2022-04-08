@@ -8,41 +8,39 @@ using namespace std;
 #include "customer_service.cpp"
 #include "admin_service.cpp"
 int main(){
-    customers.push_back(Customer("rahul", "password", 0, 0, vector<pair<string,int>>()));
+customers.push_back(Customer("rahul", "password", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("jhon", "password1", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("saketh", "password2", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("kaushik", "password3", 0, 0, vector<pair<string,int>>()));
-customers.push_back(Customer("ratna", "snekss", 0, 0, vector<pair<string,int>>()));
+customers.push_back(Customer("ratna", "password4", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("aditya", "password5", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("aakash", "password6", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("jhon101", "password7", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("jhon102", "password8", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("jhon104", "password9", 0, 0, vector<pair<string,int>>()));
-    int num;
-    bool customer = false, admin = false, exit = false;
+    int num, i;
+    bool exit = false;
     while(exit == false){
-    cout << "Welcome to Restuarant"<<"\n";
+    cout << "Welcome to Restaurant"<<"\n";
     cout << "Choose any one of the options below:" << endl;
     cout << "1. Admin Login" << endl;
     cout << "2. Customer Login" << endl;
+    cout << "3. Exit" << endl;
     cin >> num;
     if(num == 1){
         if(checkadmin()){
-            exit = true;
-            admin = true;
+            adminservices();
         }
     }
     if(num == 2){
-        if(checkcustomer()){
-            exit = true;
-            customer = true;
+        i = checkcustomer();
+        if(i > 0){
+            customerservices(i);
         }
     }
-}
-if(customer){
-    customerservices();
-}
-if(admin){
-    adminservices();
+    if(num == 3){
+        cout << "Thank you for using our Restaurant." << endl;
+        exit = true;
+    }
 }
 }
