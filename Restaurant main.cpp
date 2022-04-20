@@ -18,6 +18,19 @@ customers.push_back(Customer("aakash", "password6", 0, 0, vector<pair<string,int
 customers.push_back(Customer("jhon101", "password7", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("jhon102", "password8", 0, 0, vector<pair<string,int>>()));
 customers.push_back(Customer("jhon104", "password9", 0, 0, vector<pair<string,int>>()));
+dishes.push_back(Dish("Biryani", 200, 2,1));
+dishes.push_back(Dish("Pizza", 100, 4,1));
+dishes.push_back(Dish("Burger", 50, 6, 1));
+dishes.push_back(Dish("Coke", 50, 8, 1));
+dishes.push_back(Dish("Pepsi", 50, 10, 1));
+dishes.push_back(Dish("Fries", 50, 12, 1));
+dishes.push_back(Dish("Sandwich", 50, 14, 1));
+dishes.push_back(Dish("Noodles", 50, 16, 1));
+dishes.push_back(Dish("Pasta", 50, 18, 1));
+dishes.push_back(Dish("Cake", 50, 20, 1));
+dishes.push_back(Dish("Ice-cream", 50, 22, 1));
+dishes.push_back(Dish("Chocolate", 50, 24, 1));
+
     int num, i;
     bool exit = false;
     while(exit == false){

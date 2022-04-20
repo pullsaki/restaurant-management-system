@@ -7,52 +7,6 @@
 #include "constants.cpp"
 using namespace std;
 
-void viewdishes(){
-    cout << "Dishes available are: " << endl;
-    cout << "====================="<<endl;
-    cout << std::left << std::setw(20) << "Dish name" << internal
-    << setw(20) << "Price" <<setw(20) << "Quantity Available"<< endl;
-    for(int i=0;i<dishes.size();i++){
-        cout << std::left << std::setw(20) << dishes[i].name << internal << setw(20)
-        << dishes[i].price << internal << setw(20) << dishes[i].quantity << endl;
-    }
-    cout << "Top five dishes in our restaurant according to customer's rating are: " << endl;
-    cout << "====================="<<endl;
-    list<pair<int, string>> l;
-    for(int i=0;i<dishes.size();i++){
-        l.push_back(make_pair(dishes[i].votes,dishes[i].name));
-    }
-    l.sort([](const std::pair<int, string> &x, const std::pair<int, string> &y)
-    {
-    return x.first < y.first;
-    });
-    // l.reverse();
-    auto it = l.cbegin();
-    for(int i=0;i<5;i++){
-        cout << it->second << endl;
-        it++;
-    }
-}
-void searchdish(){
-    string dishname;
-    bool notfound = true;
-    cout << "Enter the dish name to search: ";
-    cin >> dishname;
-    for(int i=0;i<dishes.size();i++){
-        if(lower(dishes[i].name) == lower(dishname)){
-            cout << "The dish that you are searching for is available to order and its details are shown below:"<<endl;
-            cout << "Price: " << dishes[i].price << endl;
-            cout << "Quantity Available: "<< dishes[i].quantity << endl;
-            notfound = false;
-            break;
-        }
-    }
-    if(notfound){
-        cout << "The dish that you are searching is not available to order due to insufficient quantity!"<<endl;
-    }
-
-
-}
 void add_dishes_to_cart(int i){
     string dish;
     int q;
@@ -60,8 +14,13 @@ void add_dishes_to_cart(int i){
     cin >> dish;
     cout << "Enter the quantity of the dish to be added to the cart" << endl;
     cin >> q;
+    if(q > 0){
     customers[i].orders.push_back(pair<string,int>(dish,q));
     customers[i].bill_amount+=finddish(dish).price*q;
+    }
+    else{
+        cout << "Invalid quantity entered!" << endl;
+    }
 }
 void viewbill(int i){
     cout << "Bill for customer " << customers[i].name << endl;
@@ -85,6 +44,9 @@ void placeorder(int i){
     else{
         viewbill(i);
     }
+    for(int j=0;j<customers[i].orders.size();j++){
+        decrease_quantity(customers[i].orders[j].first,customers[i].orders[j].second);
+    }
     customers[i].bill_amount = 0;
     customers[i].orders.clear();
 }
@@ -92,8 +54,7 @@ void votedishes(){
 cout << "Enter the name of the dish for which you want to give rating: " << endl;
 string dish;
 cin >> dish;
-Dish d = finddish(dish);
-d.votes++;
+vote(dish);
 }
 
 
@@ -130,7 +91,7 @@ void customerservices(int i){
     }
     if(num == 7){
 
-        cout << "You are successfully logged out" << endl;
+        cout << "You are successfully logged out!" << endl;
         exit = true;
     }
 }
