@@ -47,7 +47,7 @@ int main() {
         }
         if (num == 2) {
             i = checkcustomer();
-            if (i > 0) {
+            if (i >= 0) {
                 customerservices(i);
             }
         }

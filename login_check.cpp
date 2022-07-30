@@ -7,11 +7,11 @@ using namespace std;
 
 int checkcustomer() {
     string name;
-    char *password;
+    string password;
     cout << "Enter your name: ";
     cin >> name;
     cout << "Enter your password: ";
-    password = getpass("");
+    cin >> password;
 
     for (int i = 0;i < customers.size();i++) {
         if (customers[i].name == name && customers[i].password == password) {
@@ -21,16 +21,16 @@ int checkcustomer() {
         }
     }
     cout << "Invalid username or password" << endl;
-    return 0;
+    return -1;
 }
 
 bool checkadmin() {
     string name;
-    char *password;
+    string password;
     cout << "Enter admin name: ";
     cin >> name;
     cout << "Enter admin password: ";
-    password = getpass("");
+    cin >> password;
 
     for (int i = 0;i < admins.size();i++) {
         if (admins[i].name == name && admins[i].password == password) {
